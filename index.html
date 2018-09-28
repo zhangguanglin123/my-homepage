@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <title>用fullPage.js制作百度百科史记2013效果演示_haorooms前端资料库</title>
+    <meta name="keywords" content="前端知识 , CSS , javascript , jquery，PHP, Haorooms博客">
+    <meta name="description" content="Haorooms，Aaron个人博客。记录本人工作中遇到的问题，以及经验总结和分享！">
+        <link rel="stylesheet" href="css/jquery.fullPage.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="js/jquery-ui-1.10.3.min.js"></script>
+        <script src="js/jquery.fullPage.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $.fn.fullpage({
+                    slidesColor: ['#0075D1', '#C2E5FF', '#FDF6E1', '#E9E9E9', '#F3F3F3', '#F9F3DC'],
+                    anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'],
+                    menu: '#menu',
+                    afterRender: function () {
+                        $('.screen-main span').each(function () {
+                            var $rel = $(this).attr('rel');
+                            var $arr = $rel.split(',');
+                            $(this).animate({
+                                left: $arr[2] + 'px',
+                                top: $arr[3] + 'px'
+                            }, 500);
+                        });
+                        $('.inner a').each(function () {
+                            var $rel = $(this).attr('rel');
+                            var $arr = $rel.split(',');
+                            $(this).animate({
+                                left: $arr[0] + 'px',
+                                top: $arr[1] + 'px'
+                            }, 500);
+                        });
+                    },
+                    afterLoad: function (anchorLink, index) {
+                        if (index == 1) {
+                            $('.screen-main span').each(function () {
+                                var $rel = $(this).attr('rel');
+                                var $arr = $rel.split(',');
+                                $(this).animate({
+                                    left: $arr[2] + 'px',
+                                    top: $arr[3] + 'px'
+                                }, 500);
+                            });
+                        }
+                        if (index == 2 || index == 3 || index == 4 || index == 5) {
+                            $('.inner').eq(index - 2).find('a').each(function () {
+                                var $rel = $(this).attr('rel');
+                                var $arr = $rel.split(',');
+                                $(this).animate({
+                                    left: $arr[2] + 'px',
+                                    top: $arr[3] + 'px'
+                                }, 500);
+                            });
+                        }
+                        if (index == 6) {
+                            $('.zanzhu-con a').fadeIn(1000);
+                        }
+                    },
+                    onLeave: function (index, direction) {
+                        if (index == 1) {
+                            $('.screen-main span').each(function () {
+                                var $rel = $(this).attr('rel');
+                                var $arr = $rel.split(',');
+                                $(this).animate({
+                                    left: $arr[0] + 'px',
+                                    top: $arr[1] + 'px'
+                                }, 500);
+                            });
+                        }
+                        if (index == 2 || index == 3 || index == 4 || index == 5) {
+                            $('.inner').eq(index - 2).find('a').each(function () {
+                                var $rel = $(this).attr('rel');
+                                var $arr = $rel.split(',');
+                                $(this).animate({
+                                    left: $arr[0] + 'px',
+                                    top: $arr[1] + 'px'
+                                }, 500);
+                            });
+                        }
+                        if (index == 6) {
+                            $('.zanzhu-con a').fadeOut(1000);
+                        }
+                    }
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+
+        <ul id="menu">
+            <li data-menuanchor="page1" class="active"><a href="#page1">TOP</a></li>
+            <li data-menuanchor="page2"><a href="#page2">软件卡</a></li>
+            <li data-menuanchor="page3"><a href="#page3">偶像卡</a></li>
+            <li data-menuanchor="page4"><a href="#page4">能力卡</a></li>
+            <li data-menuanchor="page5"><a href="#page5">性格卡</a></li>
+            <li data-menuanchor="page6"><a href="#page6">图标作品</a></li>
+        </ul>
+
+        <div class="section section1">
+            <div class="screen-main">
+                <span class="shi1"  rel="-501,-455,249,150">姓名:张广林</span>
+                <span class="shi2"  rel="1387,-359,125,250">性别:男</span>
+                <span class="shi3"  rel="-619,-359,260,350">籍贯:山西省运城市</span>
+                <span class="shi4"  rel="1295,-259,315,450">爱好:看NBA,打游戏,K歌</span>
+                <span class="ji1"  rel="-328,-589,673,150">特长:ps,html,css,js</span>
+                <span class="ji2"  rel="1648,-487,720,250">学校:运城学院</span>
+                <span class="ji3"  rel="-244,-488,756,212"></span>
+                <span class="year2"  rel="1686,-213,690,350">工作经验:三年</span>
+                <span class="year0"  rel="-266,-189,734,511"></span>
+                <span class="year1"  rel="1792,-210,792,490"></span>
+                <span class="year3"  rel="-173,-207,827,493"></span>
+                <span class="slogen"  rel="1462,-106,623,450">年龄:22</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="science-inner inner">
+                <a class="stiteml st1" href="http://www.haorooms.com/" rel="0,-350,0,7">photoshop</a>
+                <a class="stiteml st2" href="http://www.haorooms.com/" rel="0,-350,0,37">photoshop</a>
+                <a class="stiteml st3" href="http://www.haorooms.com/" rel="0,-350,0,68">photoshop</a>
+                <a class="stiteml st4" href="http://www.haorooms.com/" rel="0,-350,0,88">photoshop</a>
+                <a class="stiteml st5" href="http://www.haorooms.com/" rel="1010,116,554,116">HBuilder</a>
+                <a class="stiteml st6" href="http://www.haorooms.com/" rel="1010,146,554,146">HBuilder</a>
+                <a class="stiteml st7" href="http://www.haorooms.com/" rel="1010,163,554,163">HBuilder</a>
+                <a class="stiteml st8" href="http://www.haorooms.com/" rel="1010,236,554,236">HBuilder</a>
+                <a class="stitemr st9" href="http://www.haorooms.com/" rel="-710,346,290,346">phpstorm</a>
+                <a class="stitemr st10" href="http://www.haorooms.com/" rel="-710,376,290,376">phpstorm</a>
+                <a class="stitemr st11" href="http://www.haorooms.com/" rel="-710,406,224,406">phpstorm</a>
+                <a class="stitemr st12" href="http://www.haorooms.com/" rel="-710,433,30,433">phpstorm</a>
+                <a class="stiteml st13" href="http://www.haorooms.com/" rel="761,1050,761,506">sublime</a>
+                <a class="stiteml st14" href="http://www.haorooms.com/" rel="761,1050,761,523">sublime</a>
+                <a class="stiteml st15" href="http://www.haorooms.com/" rel="761,1050,761,587">sublime</a>
+                <a class="stiteml st16" href="http://www.haorooms.com/" rel="761,1050,761,622">sublime</a>
+                <a class="stiteml st17" href="http://www.haorooms.com/" rel="761,1050,761,656">sublime</a>
+                <a class="stimg1" href="http://www.haorooms.com/" rel="0,-350,0,153"><img width="181" height="166" src="images/u=3988216879,3134072065&fm=11&gp=0.jpg.png"></a>
+                <a class="stimg2" href="http://www.haorooms.com/" rel="980,2,220,2"><img width="313" height="317" src="images/timgLV35GESQ.jpg"></a>
+                <a class="stimg3" href="http://www.haorooms.com/" rel="-407,350,413,350"><img width="313" height="215" src="images/timgVSGZEQGS.jpg"></a>
+                <a class="stimg4" href="http://www.haorooms.com/" rel="761,850,761,350"><img width="200" height="138" src="images/timgE991DN8T.jpg"></a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="famous-inner inner">
+                <a class="faitemr fa1" href="http://www.haorooms.com/"  rel="90,-180,90,68">周杰伦</a>
+                <a class="faitemr fa2" href="http://www.haorooms.com/" rel="90,-180,90,93">周杰伦</a>
+                <a class="faitemr fa3" href="http://www.haorooms.com/" rel="0,-180,0,113">周杰伦</a>
+                <a class="faiteml fa4" href="http://www.haorooms.com/" rel="1280,203,235,203">王者Mc阿哲</a>
+                <a class="faiteml fa5" href="http://www.haorooms.com/" rel="1280,227,235,227">王者Mc阿哲</a>
+                <a class="faiteml fa6" href="http://www.haorooms.com/" rel="1080,290,235,290">王者Mc阿哲</a>
+                <a class="faiteml fa7" href="http://www.haorooms.com/" rel="-300,317,100,317,">勒布朗</a>
+                <a class="faiteml fa8" href="http://www.haorooms.com/" rel="-300,533,149,533">勒布朗</a>
+                <a class="faiteml fa9" href="http://www.haorooms.com/" rel="-300,563,149,563">勒布朗</a>
+                <a class="faiteml fa10" href="http://www.haorooms.com/" rel="-300,593,149,593">詹姆斯</a>
+                <a class="faiteml fa11" href="http://www.haorooms.com/" rel="1370,383,786,383">邓紫棋</a>
+                <a class="faiteml fa12" href="http://www.haorooms.com/" rel="1370,450,786,450">邓紫棋</a>
+                <a class="faiteml fa13" href="http://www.haorooms.com/" rel="1370,480,786,480">邓紫棋</a>
+                <a class="faiteml fa14" href="http://www.haorooms.com/" rel="1370,510,786,510">邓紫棋</a>
+                <a class="faiteml fa15" href="http://www.haorooms.com/" rel="1370,540,786,540">邓紫棋</a>
+                <a class="faimg1" href="http://www.haorooms.com/" rel="200,-180,200,10"><img width="169" height="169" src="images/timg2.jpg"></a>
+                <a class="faimg2" href="http://www.haorooms.com/" rel="980,77,600,77"><img width="284" height="211" src="images/timgXOMU9D18.jpg"></a>
+                <a class="faimg3" href="http://www.haorooms.com/" rel="980,366,290,366"><img width="491" height="328" src="images/timg2NXOP8FK.jpg"></a>
+                <a class="faimg4" href="http://www.haorooms.com/" rel="-300,387,149,387"><img width="139" height="86" src="images/timg1.jpg"></a>
+            </div>
+        </div>
+        <div class="section">
+            <div class="social-inner inner">
+                <a class="soiteml so1" href="http://www.haorooms.com/" rel="450,-175,450,51">可以熟练用css</a>
+                <a class="soiteml so2" href="http://www.haorooms.com/" rel="450,-175,450,110">中国梦</a>
+                <a class="soiteml so3" href="http://www.haorooms.com/" rel="450,-175,450,140">会AX</a>
+                <a class="soiteml so4" href="http://www.haorooms.com/" rel="980,228,450,228">服从命令听指挥</a>
+                <a class="soiteml so5" href="http://www.haorooms.com/" rel="980,258,450,258">老板指哪我打哪</a>
+                <a class="soiteml so6" href="http://www.haorooms.com/" rel="980,288,450,288">可察言观色</a>
+                <a class="soiteml so7" href="http://www.haorooms.com/" rel="980,340,450,340">会跟着党走</a>
+                <a class="soiteml so8" href="http://www.haorooms.com/" rel="980,363,450,363">可以熟练用js</a>
+                <a class="soiteml so9" href="http://www.haorooms.com/" rel="980,428,450,428">具有爱国的心</a>
+                <a class="soiteml so10" href="http://www.haorooms.com/" rel="-405,369,162,369">会ps切图</a>
+                <a class="soiteml so11" href="http://www.haorooms.com/" rel="-405,434,162,434">喜欢唱歌</a>
+                <a class="soiteml so12" href="http://www.haorooms.com/" rel="-405,464,162,464">懂互联网+</a>
+                <a class="soitemr so13" href="http://www.haorooms.com/" rel="15,850,15,520">可以熟练布html页面</a>
+                <a class="soitemr so14" href="http://www.haorooms.com/" rel="376,1050,376,585">没有结婚</a>
+                <a class="soitemr so15" href="http://www.haorooms.com/" rel="376,1050,357,612">不喜欢放假</a>
+                <a class="soimg1" href="http://www.haorooms.com/" rel="156,-175,156,10"><img width="270" height="160" src="images/杨幂two.jpg"></a>
+                <a class="soimg2" href="http://www.haorooms.com/" rel="-405,186,155,186"><img width="270" height="165" src="images/赵丽颖one.jpg"></a>
+                <a class="soimg3" href="http://www.haorooms.com/" rel="980,186,675,186"><img width="277" height="166" src="images/郑爽one.jpg"></a>
+                <a class="soimg4" href="http://www.haorooms.com/" rel="507,850,507,494"><img width="203" height="169" src="images/郑爽two.jpg"></a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="net-inner inner">
+                <a class="netitemr net1" href="http://www.haorooms.com/" rel="19,-240,19,56">知感恩</a>
+                <a class="netitemr net2" href="http://www.haorooms.com/" rel="0,-240,086">吃苦耐劳</a>
+                <a class="netitemr net3" href="http://www.haorooms.com/" rel="0,-240,116">积极阳光</a>
+                <a class="netitemr net4" href="http://www.haorooms.com/" rel="19,-240,19,146">负责任</a>
+                <a class="netitemr net5" href="http://www.haorooms.com/" rel="-54,-240,-54,176">适应快</a>
+                <a class="netitemr net6" href="http://www.haorooms.com/" rel="-32,-240,-32,206"></a>
+                <a class="netiteml net7" href="http://www.haorooms.com/" rel="980,-1,449,-1">讲文明</a>
+                <a class="netiteml net8" href="http://www.haorooms.com/" rel="980,28,449,28">树新风</a>
+                <a class="netiteml net9" href="http://www.haorooms.com/" rel="980,50,449,50">提高工作效率</a>
+                <a class="netiteml net10" href="http://www.haorooms.com/"  rel="980,116,449,116">男子汉</a>
+                <a class="netiteml net11" a href="http://www.haorooms.com/"  rel="980,146,449,146">注定孤独一生</a>
+                <a class="netiteml net12" a href="http://www.haorooms.com/"  rel="980,184,449,184">我和小伙伴们都惊呆了</a>
+                <a class="netitemr net13" a href="http://www.haorooms.com/"  rel="-435,261,265,261">高端大气上档次</a>
+                <a class="netitemr net14" a href="http://www.haorooms.com/"  rel="-435,291,103,291">可以独当一面</a>
+                <a class="netitemr net15" a href="http://www.haorooms.com/" rel="-435,351,8,351">很喜欢和人交朋友</a>
+                <a class="netitemr net16" a href="http://www.haorooms.com/"  rel="-435,428,63,428">有毅力</a>
+                <a class="netitemr net17" a href="http://www.haorooms.com/"  rel="-435,458,63,458">有担当</a>
+                <a class="netiteml net18" a href="http://www.haorooms.com/" style="left: 449px; top: 578px;" rel="449,1140,449,578">平常心</a>
+                <a class="netiteml net19" a href="http://www.haorooms.com/" style="left: 449px; top: 608px;" rel="449,1140,449,608">不喜欢斤斤计较</a>
+                <a class="netiteml net20" a href="http://www.haorooms.com/" style="left: 449px; top: 638px;" rel="449,1140,449,638">顺应自如</a>
+                <a class="netimg1" a href="http://www.haorooms.com/" rel="139,-240,139,57"><img width="289" height="178" src="images/erke.jpg"></a>
+                <a class="netimg2" a href="http://www.haorooms.com/" rel="980,96,809,96"><img width="108" height="93" src="images/jingdai.png"></a>
+                <a class="netimg3" a href="http://www.haorooms.com/" rel="-435,431,179,431"><img width="205" height="174" src="images/QQ图片20180729232810.jpg"></a>
+                <a class="netimg4" a href="http://www.haorooms.com/" rel="451,850,451,267"><img width="270" height="291" src="images/QQ图片20180729232829.jpg"></a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="zanzhu">
+                <h2>图标作品</h2>
+                <div class="zanzhu-con">
+                    <a href="http://www.haorooms.com/"><img width="190" height="76" src="images/椭圆29@3x.png"></a>
+                    <a href="http://www.haorooms.com/"><img width="190" height="76" src="images/椭圆17@3x.png"></a>
+                    <a href="http://www.haorooms.com/"><img width="190" height="76" src="images/椭圆11拷贝@3x.png"></a>
+                    <a href="http://www.haorooms.com/"><img width="190" height="76" src="images/椭圆1拷贝@3x.png"></a>
+                    <a href="http://www.haorooms.com/"><img width="190" height="76" src="images/图层10@3x.png"></a>
+                    <a href="http://www.haorooms.com/"><img width="190" height="76" src="images/图层7拷贝@3x.png"></a>
+                    <a href="http://www.haorooms.com/"><img width="190" height="76" src="images/图层3@3x.png"></a>
+                    <a href="http://www.haorooms.com/"><img width="190" height="76" src="images/图层1拷贝3@3x.png"></a>
+                    <a href="http://www.haorooms.com/"><img width="190" height="76" src="images/矩形1拷贝2@3x.png"></a>
+                    <a href="http://www.haorooms.com/"><img width="190" height="76" src="images/矩形1@3x.png"></a>
+                </div>
+                <div class="zuopin">
+                	<p>网页设计作品</p>
+                	<a href="https://zhangguanglin123.github.io/xiaomi/xiaomi/mi.html">小米</a>
+                	<a href="https://zhangguanglin123.github.io/jingdong/京东/xiujing.html">京东</a>
+                	<a href="https://zhangguanglin123.github.io/zouni/">天气APP</a>
+                	<a href="https://zhangguanglin123.github.io/suxinhuahui/素馨花卉/huahui.html">素馨花卉</a>
+                </div>
+                <div class="foot clearfix">
+                    <p class="bd">国庆节快到了,我先给大家拜个早年,安排</p>
+                    <p class="ft">相亲打电话:19935628039(同微信)  非诚勿扰   QQ:1637718415</p>
+                </div>
+            </div>
+        </div>
+        <!--<div style="display: none">本资源由haorooms前端资源库整理，更多资源请查看haorooms。资源整理耗费时间和精力，假如您转载该资源，请注明出自haorooms前端资源库！谢谢！</div>-->
+    </body>
+</html>
